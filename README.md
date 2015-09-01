@@ -1,28 +1,22 @@
 # MysqlQueryTimeout
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mysql_query_timeout`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mysql_query_timeout'
+gem 'mysql_query_timeout', git: 'https://github.com/timgaleckas/mysql_query_timeout.git'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install mysql_query_timeout
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+QueryTimeout.timeout(2, ActiveRecord::Base){|connection|connection.select_all('select sleep(3)')}
+```
 
 ## Development
 
